@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm, useFieldArray, useWatch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 // List of validation rules supported:
@@ -16,7 +16,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 export default function ReusableForm({ fields, onSubmit, schema }) {
   const {
     register,
-    control,
     handleSubmit,
     formState: { errors },
     watch
@@ -43,7 +42,18 @@ export default function ReusableForm({ fields, onSubmit, schema }) {
 
       return (
         <div key={field.name} className="mb-4 text-start">
+          {field.type === "checkbox" ? (
+          <label className="inline-flex items-center gap-2">
+            <input
+              type="checkbox"
+              {...register(field.name)}
+              className="mt-1"
+            />
+            {field.label}
+          </label>
+        ) : (
           <label className="block mb-1">{field.label}</label>
+        )}
 
           {field.type === "select" && (
             <select
@@ -72,14 +82,6 @@ export default function ReusableForm({ fields, onSubmit, schema }) {
                 </label>
               ))}
             </div>
-          )}
-
-          {field.type === "checkbox" && (
-            <input
-              type="checkbox"
-              {...register(field.name)}
-              className="mt-1"
-            />
           )}
 
           {field.type === "textarea" && (
