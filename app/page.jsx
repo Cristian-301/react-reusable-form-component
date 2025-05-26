@@ -6,6 +6,11 @@ import { schema } from '@/components/formComponents/formSchema'
 export default function Home() {
     const fields = [
         {
+            name: "name",
+            label: "Name",
+            type: "text",
+        },
+        {
             name: "email",
             label: "Email",
             type: "email",
@@ -28,7 +33,7 @@ export default function Home() {
         {
             name: "bio",
             label: "Short Bio",
-            type: "textarea"
+            type: "textarea",
           },
           {
             name: "profilePicture",
@@ -78,8 +83,8 @@ export default function Home() {
 
     return (
         <>
-            <div className="bg-stone-400 w-full  flex justify-center items-center py-10">
-                <div className='bg-slate-200 rounded-xl w-1/3'>
+            <div className="bg-stone-400 w-full flex justify-center items-center py-10">
+                <div className='bg-slate-200 rounded-xl w-full mx-5 lg:w-1/3'>
                     <ReusableForm fields={fields} onSubmit={handleSubmit} schema={schema} />
                 </div>
             </div>
