@@ -84,7 +84,7 @@ export default function Home() {
     return (
         <>
             <div className="bg-stone-400 w-full flex justify-center items-center py-10">
-                <div className='bg-slate-200 rounded-xl w-full mx-5 lg:w-1/3'>
+                <div className='bg-slate-200 rounded-xl w-full mx-5 md:w-1/2 xl:w-1/3'>
                     <ReusableForm fields={fields} onSubmit={handleSubmit} schema={schema} />
                 </div>
             </div>
