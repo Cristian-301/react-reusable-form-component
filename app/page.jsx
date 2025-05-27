@@ -1,7 +1,7 @@
 'use client'
 
-import ReusableForm from '@/components/formComponents/ReusableForm'
-import { schema } from '@/components/formComponents/formSchema'
+import ReusableForm from '@/components/formComponent/ReusableForm'
+import { schema } from '@/components/formComponent/formSchema'
 
 export default function Home() {
     const fields = [
@@ -34,12 +34,18 @@ export default function Home() {
             name: "bio",
             label: "Short Bio",
             type: "textarea",
-          },
-          {
+        },
+        {
+            name: "rating",
+            label: "Rate your experience",
+            type: "rating",
+            max: 5 // how many stars
+        },
+        {
             name: "profilePicture",
             label: "Upload Profile Picture",
             type: "file"
-          },
+        },
         {
             name: "gender",
             label: "Gender",
